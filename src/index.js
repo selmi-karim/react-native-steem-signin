@@ -153,9 +153,9 @@ export default class SteemConnect extends React.Component {
                     onRequestClose={this.hide.bind(this)}
                     transparent
                 >
-                    <View style={styles.container}>
+                    <View style={{flex:1}}>
                         <WebView
-                            style={[{ flex: 1 }, this.props.styles]}
+                            style={styles.container}
                             source={{ uri: LOGIN_URL }}
                             scalesPageToFit
                             startInLoadingState
