@@ -23,7 +23,6 @@ export default class SteemConnect extends React.Component {
         btnWidth: PropTypes.number,
         btnHeight: PropTypes.number,
         textSize: PropTypes.number,
-        textColor: PropTypes.string,
     }
 
     static defaultProps = {
@@ -31,9 +30,8 @@ export default class SteemConnect extends React.Component {
         btnWidth: 180,
         btnHeight: 80,
         textSize: 22,
-        textColor: '#1194f6',
-
     }
+
     constructor(props) {
         super(props)
         this.state = {
