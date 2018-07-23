@@ -18,6 +18,22 @@ import { LOGIN_URL, CALLBACK_URL } from "react-native-dotenv"
 
 export default class SteemConnect extends React.Component {
 
+    static propTypes = {
+        onLoggedIn: PropTypes.func,
+        btnWidth: PropTypes.number,
+        btnHeight: PropTypes.number,
+        textSize: PropTypes.number,
+        textColor: PropTypes.string,
+    }
+
+    static defaultProps = {
+        onLoggedIn: () => { },
+        btnWidth: 180,
+        btnHeight: 80,
+        textSize: 22,
+        textColor: '#1194f6',
+
+    }
     constructor(props) {
         super(props)
         this.state = {
@@ -94,14 +110,28 @@ export default class SteemConnect extends React.Component {
     _isUserLoggedIn() {
         if (!this.state.logged) {
             return (
-                <View style={styles.button}>
-                    <Button title="Sign In With SteemConnect" onPress={this.show.bind(this)} />
-                </View>
+                <View style={{
+                    flex: 1,
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: this.props.btnWidth,
+                    height: this.props.btnHeight
+                }}>
+                    <Button title="Sign In With SteemConnect" onPress={this.show.bind(this)} color={this.props.textColor} />
+                </View >
             )
         } else {
             return (
-                <View style={styles.button}>
-                    <Button title="Sign out" onPress={this._signOutAsync} />
+                <View style={{
+                    flex: 1,
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: this.props.btnWidth,
+                    height: this.props.btnHeight
+                }}>
+                    <Button title="Sign out" onPress={this._signOutAsync} color={this.props.textColor} />
                 </View>
             )
         }
@@ -109,6 +139,12 @@ export default class SteemConnect extends React.Component {
     }
 
     render() {
+        const {
+            btnWidth,
+            btnHeight,
+            textSize,
+            textColor
+        } = this.props
         return (
             <View style={styles.container}>
                 <Modal
@@ -139,11 +175,14 @@ export default class SteemConnect extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
     button: {
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+
     }
 });
