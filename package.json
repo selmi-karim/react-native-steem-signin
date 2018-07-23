@@ -24,6 +24,7 @@
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-button": "2.3.0",
+    "react-native-dotenv": "^0.2.0",
     "react-navigation": "^2.8.0"
   }
 }
