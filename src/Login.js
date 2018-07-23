@@ -1,6 +1,6 @@
 import { StyleSheet, View, WebView, AsyncStorage, Text } from 'react-native'
 import React, { Component } from 'react'
-import url from 'url'
+import queryString from 'query-string'
 // Change these to reflect
 // fetch url
 //const LOGIN_URL = "https://5bff8907.ngrok.io/api/login"
@@ -22,6 +22,7 @@ export default class Login extends Component {
     };
 
 
+
     onNavigationStateChange(navState) {
         // If we get redirected back to the HOME_URL we know that we are logged in. If your backend does something different than this
         // change this line.
@@ -32,15 +33,19 @@ export default class Login extends Component {
             });
         }*/
         if (navState.url.indexOf('http://localhost:4040/api/auth/login/') === 0) {
-            console.log('/n open------>')
-            let urlObject = url.parse(navState.url);
-            console.log('path: '+urlObject.query)
-            console.log('acces token: '+(urlObject.query['acces_token']))
-            console.log('username: '+(urlObject.path.username))
-            console.log('expires in: '+(urlObject.path.expires_in))
-            AsyncStorage.setItem('userToken', 'abc')
+            let parseUrl = queryString.parseUrl(navState.url)
+            this.extractData(parseUrl)
             this.props.navigation.navigate('App')
         }
+    }
+
+    extractData(parseUrl) {
+        let username = parseUrl.query.username
+        let expires_in = parseUrl.query.expires_in
+        let access_token = parseUrl.query.access_token
+        AsyncStorage.setItem('access_token', access_token)
+        AsyncStorage.setItem('expires_in', expires_in)
+        AsyncStorage.setItem('username', username)
     }
 
     render() {
