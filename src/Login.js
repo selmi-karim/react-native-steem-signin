@@ -1,6 +1,6 @@
-import { StyleSheet, View, WebView, AsyncStorage, Text } from 'react-native';
-import React, { Component } from 'react';
-
+import { StyleSheet, View, WebView, AsyncStorage, Text } from 'react-native'
+import React, { Component } from 'react'
+import url from 'url'
 // Change these to reflect
 // fetch url
 //const LOGIN_URL = "https://5bff8907.ngrok.io/api/login"
@@ -33,6 +33,11 @@ export default class Login extends Component {
         }*/
         if (navState.url.indexOf('http://localhost:4040/api/auth/login/') === 0) {
             console.log('/n open------>')
+            let urlObject = url.parse(navState.url);
+            console.log('path: '+urlObject.query)
+            console.log('acces token: '+(urlObject.query['acces_token']))
+            console.log('username: '+(urlObject.path.username))
+            console.log('expires in: '+(urlObject.path.expires_in))
             AsyncStorage.setItem('userToken', 'abc')
             this.props.navigation.navigate('App')
         }
