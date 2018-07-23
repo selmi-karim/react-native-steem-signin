@@ -2,9 +2,6 @@ import { StyleSheet, View, WebView, AsyncStorage, Text } from 'react-native'
 import React, { Component } from 'react'
 import queryString from 'query-string'
 import { LOGIN_URL, CALLBACK_URL } from 'react-native-dotenv'
-// Change these to reflect
-// fetch url
-//const LOGIN_URL = "https://5bff8907.ngrok.io/api/login"
 
 var styles = StyleSheet.create({
     container: {
@@ -25,13 +22,7 @@ export default class Login extends Component {
 
     onNavigationStateChange(navState) {
         // If we get redirected back to the HOME_URL we know that we are logged in. If your backend does something different than this
-        // change this line.
-        console.log('new url: ' + navState.url)
-        /*if (navState.url == HOME_URL) {
-            this.setState({
-                loggedIn: true,
-            });
-        }*/
+        
         if (navState.url.indexOf(CALLBACK_URL) === 0) {
             let parseUrl = queryString.parseUrl(navState.url)
             this.extractData(parseUrl)
