@@ -1,7 +1,7 @@
 import { StyleSheet, View, WebView, AsyncStorage, Text } from 'react-native'
 import React, { Component } from 'react'
 import queryString from 'query-string'
-import { LOGIN_URL, CALLBACK_URL } from 'react-native-dotenv'
+import { LOGIN_URL, CALLBACK_URL } from  "react-native-dotenv"
 
 var styles = StyleSheet.create({
     container: {
