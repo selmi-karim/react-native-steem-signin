@@ -11,7 +11,7 @@ After success sign in the authentication data saved in the AsyncStorage under th
 </p>
 
 <strong>Note</strong>: Demo above includes debug text to confirm signin (i.e. user name, expires time and access token). 
-<SteemConnect />, by default, will only display the native 'Sign in with Steem' button.
+<SteemConnect />, by default, will only display the native 'Sign in with SteemConnect' button.
 
 
 # Setup
