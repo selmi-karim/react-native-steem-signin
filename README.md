@@ -69,7 +69,7 @@ export default class SteemSignIn extends Component {
 # Demo 
 
 <p align="center"> 
-<img src="screenshots/qrcode.png" height= "350" width="350" >
+<img src="screenshots/qrcode.png" height= "350" width="500" >
 </p>
 
 
