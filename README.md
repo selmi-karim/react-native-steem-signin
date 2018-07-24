@@ -51,7 +51,7 @@ console.log(link)
 
 Property	|	Type		|	Default		|	Description |
 :---------|:--------|:----------|:------------|
-onLoggedIn() | function required* | `null` | Fires after each Sign in and return auth data.
+onLoggedIn() | function  | `required` | Fires after each Sign in and return auth data.
 btnWidth | number | 180 | The Width of the Sign in button.
 btnHeight | number | 80 | The Height of the Sign in button.
 fontFamily | string | `System` | The font family to be used.
