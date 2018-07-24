@@ -3,7 +3,6 @@ import {
     ActivityIndicator,
     AsyncStorage,
     Button,
-    StatusBar,
     StyleSheet,
     View,
     Modal,
@@ -12,24 +11,21 @@ import {
     Text
 } from 'react-native'
 import PropTypes from 'prop-types'
-
-
 import { LOGIN_URL, CALLBACK_URL } from "react-native-dotenv"
 
 export default class SteemConnect extends React.Component {
 
     static propTypes = {
-        onLoggedIn: PropTypes.func,
+        onLoggedIn: PropTypes.func.isRequired,
         btnWidth: PropTypes.number,
         btnHeight: PropTypes.number,
-        textSize: PropTypes.number,
+        fontFamily: PropTypes.string,
     }
 
     static defaultProps = {
-        onLoggedIn: () => { },
         btnWidth: 180,
         btnHeight: 80,
-        textSize: 22,
+        fontFamily: 'System',
     }
 
     constructor(props) {
@@ -41,9 +37,9 @@ export default class SteemConnect extends React.Component {
     }
 
     componentWillMount() {
-        this._bootstrapAsync().then((query) => {
+        this._bootstrapAsync().then((auth) => {
             // Checks if the current visitor is a logged in user.
-            if (query) {
+            if (auth) {
                 this.setState({
                     modalVisible: false,
                     logged: true,
@@ -76,9 +72,10 @@ export default class SteemConnect extends React.Component {
         // If we get redirected back to the HOME_URL we know that we are logged in. 
         // If your backend does something different than this
         if (navState.url.indexOf(CALLBACK_URL) === 0) {
-            AsyncStorage.setItem('query', navState.url)
+            AsyncStorage.setItem('auth', navState.url)
             this.setState({ logged: true })
             this.hide()
+            this.props.onLoggedIn(navState.url)
         }
     }
     /**
@@ -95,7 +92,7 @@ export default class SteemConnect extends React.Component {
      */
     _bootstrapAsync = async () => {
         try {
-            return await AsyncStorage.getItem('query');
+            return await AsyncStorage.getItem('auth');
         } catch (e) {
             console.warn(e)
             return null
@@ -120,18 +117,7 @@ export default class SteemConnect extends React.Component {
                 </View >
             )
         } else {
-            return (
-                <View style={{
-                    flex: 1,
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    width: this.props.btnWidth,
-                    height: this.props.btnHeight
-                }}>
-                    <Button title="Sign out" onPress={this._signOutAsync} color={this.props.textColor} />
-                </View>
-            )
+            return null
         }
 
     }
@@ -140,7 +126,7 @@ export default class SteemConnect extends React.Component {
         const {
             btnWidth,
             btnHeight,
-            textSize,
+            fontFamily,
             textColor
         } = this.props
         return (
@@ -151,7 +137,7 @@ export default class SteemConnect extends React.Component {
                     onRequestClose={this.hide.bind(this)}
                     transparent
                 >
-                    <View style={{flex:1}}>
+                    <View style={{ flex: 1 }}>
                         <WebView
                             style={styles.container}
                             source={{ uri: LOGIN_URL }}
