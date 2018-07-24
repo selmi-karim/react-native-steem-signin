@@ -59,7 +59,7 @@ fontFamily | string | `System` | The font family to be used.
 
 # Usage 
 
-```
+```jsx
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import SteemConnect from 'react-native-steem-signin'
