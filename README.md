@@ -43,6 +43,7 @@ console.log(link)
 
 
 
+
 # Usage 
 
 ```
@@ -63,7 +64,13 @@ export default class SteemSignIn extends Component {
 }
 ```
 
+
+
 # Demo 
+
+<p align="center"> 
+<img src="screenshots/qrcode.png" height= "350" width="350" >
+</p>
 
 <a href="https://exp.host/@karimation/steem-sign-in-component">Expo Link</a>
 
