@@ -1,9 +1,0 @@
-{
-  "expo": {
-    "name": "react-native-steem-signin",
-    "description": "Steem Signin for react native applications",
-    "version": "0.1.0",
-    "sdkVersion": "27.0.0",
-    "privacy": "public"
-  }
-}
