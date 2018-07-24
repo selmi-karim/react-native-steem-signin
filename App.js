@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Alert, AsyncStorage } from 'react-native'
 import SteemConnect from './src/index'
 
 export default class HelloWorldApp extends Component {
+
+  _signIn(auth) {
+    Alert.alert('Auth data: ' + auth);
+  }
+
   render() {
     return (
-      <SteemConnect />
-      /**
-       *  style={{ width: 48, height: 48 }}
-          size={GoogleSigninButton.Size.Icon}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={this._signIn}
-       */
+      <SteemConnect
+        onLoggedIn={(auth) => this._signIn(auth)}
+      />
+
     );
   }
 }
