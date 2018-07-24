@@ -1,6 +1,6 @@
 # react-native-steem-signin
 
-Steem SignIn for react native applications With SteemConnet V2 and AsyncStorage for LocalStorage.
+Steem SignIn Component for react native applications With SteemConnet V2 and AsyncStorage for LocalStorage.
 
 After success sign in the authentication data saved in the AsyncStorage under the key <strong> auth </strong>. 
 
