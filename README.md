@@ -1,6 +1,10 @@
 # react-native-steem-signin
 
-Steem SignIn for react native applications With SteemConnet V2
+Steem SignIn for react native applications With SteemConnet V2 and AsyncStorage for LocalStorage.
+
+<strong>Note</strong>: After success sign in authentication data saved in the AsyncStorage under the key <strong> auth <strong>. 
+
+<strong>AsyncStorage</strong>  is a simple, unencrypted, asynchronous, persistent, key-value storage system that is global to the app.
 
 <p align="center"> 
 <img src="screenshots/test.gif" height= "500" width="350" >
@@ -61,15 +65,21 @@ import { Text, View } from 'react-native'
 import SteemConnect from 'react-native-steem-signin'
 
 export default class SteemSignIn extends Component {
+  
+  _signIn(auth) {
+    Alert.alert('Auth data: '+auth);
+  }
+
   render() {
     return (
-      <SteemConnect />
-          btnWidth= 180
-          btnHeight= 80 
-          fontFamily= 22
-          onLoggedIn={this._signIn}        
+      <SteemConnect
+        onLoggedIn={(auth) => this._signIn(auth)}
+        btnWidth= 180
+        btnHeight= 80 
+        fontFamily= 22
+      />
     );
-  }
+
 }
 ```
 
