@@ -74,9 +74,9 @@ export default class SteemSignIn extends Component {
     return (
       <SteemConnect
         onLoggedIn={(auth) => this._signIn(auth)}
-        btnWidth= 180
-        btnHeight= 80 
-        fontFamily= 22
+        btnWidth= {180}
+        btnHeight= {80}
+        fontFamily= {'System'}
       />
     );
 
