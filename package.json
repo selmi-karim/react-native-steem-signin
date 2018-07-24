@@ -15,6 +15,10 @@
   "jest": {
     "preset": "jest-expo"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karimation/react-native-steem-signin.git"
+  },
   "dependencies": {
     "expo": "^27.0.1",
     "prop-types": "^15.6.2",
