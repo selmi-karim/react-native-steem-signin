@@ -32,7 +32,8 @@ CALLBACK_URL=
  
  * <strong>LOGIN_URL</strong>: URL that you can redirect the user to so that they may log in to your app through SC2.
  
- <strong>Note</strong> : You can generate LOGIN_URL with <a href=" https://github.com/steemit/steemconnect-sdk"> steemconnect sdk</a>
+ <strong>Note</strong> : You can generate LOGIN_URL with 
+ <a href="https://github.com/steemit/steemconnect-sdk"> steemconnect sdk</a>
 
 ```
 var link = api.getLoginURL(state);
