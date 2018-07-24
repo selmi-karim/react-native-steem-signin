@@ -2,7 +2,7 @@
 
 Steem SignIn for react native applications With SteemConnet V2 and AsyncStorage for LocalStorage.
 
-<strong>Note</strong>: After success sign in authentication data saved in the AsyncStorage under the key <strong> auth <strong>. 
+<strong>Note</strong>: After success sign in the authentication data saved in the AsyncStorage under the key <strong> auth </strong>. 
 
 <strong>AsyncStorage</strong>  is a simple, unencrypted, asynchronous, persistent, key-value storage system that is global to the app.
 
@@ -10,7 +10,7 @@ Steem SignIn for react native applications With SteemConnet V2 and AsyncStorage 
 <img src="screenshots/test.gif" height= "500" width="350" >
 </p>
 
-<strong>Note</strong>: Demo above includes debug text to confirm signin (i.e. user name, expires time and access token). 
+Demo above includes debug text to confirm signin (i.e. user name, expires time and access token). 
 <SteemConnect />, by default, will only display the native 'Sign in with Steem' button.
 
 
