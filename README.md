@@ -42,6 +42,15 @@ console.log(link)
 ```
 
 
+# Component props
+
+
+Property	|	Type		|	Default		|	Description |
+:---------|:--------|:----------|:------------|
+onLoggedIn(item) | function required* | `null` | Fires after each Sign in and return auth data.
+btnWidth | number | 180 | The Width of the Sign in button.
+btnHeight | number | 80 | The Height of the Sign in button.
+fontFamily | string | `System` | The font family to be used.
 
 
 # Usage 
@@ -56,8 +65,8 @@ export default class SteemSignIn extends Component {
     return (
       <SteemConnect />
           btnWidth= 180
-          btnWidth= 80 
-          textSize: 22
+          btnHeight= 80 
+          fontFamily= 22
           onLoggedIn={this._signIn}        
     );
   }
@@ -75,7 +84,10 @@ export default class SteemSignIn extends Component {
 
 <a href="https://exp.host/@karimation/steem-sign-in-component">Expo Link</a>
 
+# Next
 
+* Sign up on Steem 
+     
 
 # Author
 
