@@ -2,6 +2,9 @@
 
 Steem SignIn for react native applications With SteemConnet V2
 
+<p align="center"> 
+<img src="screenshots/test.gif" height= "500" width="350" >
+</p>
 
 
 
