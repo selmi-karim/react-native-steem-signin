@@ -61,7 +61,7 @@ fontFamily | string | `System` | The font family to be used.
 
 ```jsx
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Alert } from 'react-native'
 import SteemConnect from 'react-native-steem-signin'
 
 export default class SteemSignIn extends Component {
@@ -79,7 +79,7 @@ export default class SteemSignIn extends Component {
         fontFamily= {'System'}
       />
     );
-
+ }
 }
 ```
 
