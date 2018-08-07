@@ -1,6 +1,6 @@
 {
   "name": "react-native-steem-signin",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Steem SignIn Component for react native applications With SteemConnet V2 and AsyncStorage for LocalStorage.",
   "devDependencies": {
     "jest-expo": "~27.0.0",
